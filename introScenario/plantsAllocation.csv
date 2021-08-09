@@ -1,0 +1,7 @@
+plants,plants allocation decision,plants selection decision,plants Capacity,plants Product,plants Cost,plants minValueAllocationForAssignment
+1,0.0,1.0,40,mask,3,0
+2,15.0,1.0,30,mask,2,0
+3,30.0,1.0,30,handSanitizer,1,0
+4,70.0,1.0,100,handSanitizer,3,0
+5,60.0,1.0,60,mask,2,0
+6,45.0,1.0,45,mask,1,0
