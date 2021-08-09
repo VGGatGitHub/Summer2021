@@ -185,7 +185,7 @@ def build_model():
 
     # Definition of model
     # Objective cMaximizeGoalSelect-
-    # Combine weighted criteria: 
+    # Combine weighted criteria:
     # 	cMaximizeGoalSelect cMaximizeGoalSelect 1.2{
     # 	numericExpr = decisionPath(cAllocation[plants]),
     # 	scaleFactorExpr = 1,
@@ -197,17 +197,17 @@ def build_model():
     agg_Plants_allocationVar_SG1 = mdl.sum(list_of_Plants.allocationVar)
     list_of_Plants['conditioned_Cost'] = list_of_Plants.allocationVar * list_of_Plants.Cost
     agg_Plants_conditioned_Cost_SG2 = mdl.sum(list_of_Plants.conditioned_Cost)
-    
+
     kpis_expression_list = [
         (-1, 512.0, agg_Plants_allocationVar_SG1, 1, 0, u'total plants allocations'),
         (1, 16.0, agg_Plants_conditioned_Cost_SG2, 1, 0, u'total Cost of plants over all allocations')]
     custom_code.update_goals_list(kpis_expression_list)
-    
+
     for _, kpi_weight, kpi_expr, kpi_factor, kpi_offset, kpi_name in kpis_expression_list:
         mdl.add_kpi(kpi_weight * ((kpi_expr * kpi_factor) - kpi_offset), publish_name=kpi_name)
-    
+
     mdl.minimize(sum([kpi_sign * kpi_weight * ((kpi_expr * kpi_factor) - kpi_offset) for kpi_sign, kpi_weight, kpi_expr, kpi_factor, kpi_offset, kpi_name in kpis_expression_list]))
-    
+
     # [ST_1] Constraint : cLinkSelectionToAllocationConstraint_cIterativeRelationalConstraint
     # Synchronize selection with plants allocations
     # Label: CT_1_Synchronize_selection_with_plants_allocations
@@ -218,7 +218,7 @@ def build_model():
     join_Plants_2 = groupby_Plants.join(list_of_Plants.conditioned_Capacity, how='inner')
     for row in join_Plants_2.itertuples(index=True):
         helper_add_labeled_cplex_constraint(mdl, row.allocationVar <= row.conditioned_Capacity, u'Synchronize selection with plants allocations', row)
-    
+
     # [ST_2] Constraint : cLinkSelectionToAllocationConstraint_cIterativeRelationalConstraint
     # Synchronize selection with plants allocations
     # Label: CT_2_Synchronize_selection_with_plants_allocations
@@ -231,13 +231,13 @@ def build_model():
     join_Plants_3 = groupby_Plants.join(join_Plants_2.conditioned_minValueAllocationForAssignment, how='inner')
     for row in join_Plants_3.itertuples(index=True):
         helper_add_labeled_cplex_constraint(mdl, row.allocationVar >= row.conditioned_minValueAllocationForAssignment, u'Synchronize selection with plants allocations', row)
-    
+
     # [ST_3] Constraint : cIterativeRelationalConstraint_cIterativeRelationalConstraint
     # For each plants, allocation is less than or equal to Capacity
     # Label: CT_3_For_each_plants__allocation_is_less_than_or_equal_to_Capacity
     for row in list_of_Plants[list_of_Plants.Capacity.notnull()].itertuples(index=True):
         helper_add_labeled_cplex_constraint(mdl, row.allocationVar <= row.Capacity, u'For each plants, allocation is less than or equal to Capacity', row)
-    
+
     # [ST_4] Constraint : cIterativeRelationalConstraint_cIterativeRelationalConstraint
     # For each customerDemand, total allocation of plants (such that plants Product is customerDemand) is less than or equal to Demand
     # Label: CT_4_For_each_customerDemand__total_allocation_of_plants__such_that_plants_Product_is_customerDemand__is_less_than_or_equal_to_Demand
@@ -277,7 +277,7 @@ def solve_model(mdl):
             crefiner = ConflictRefiner()
             conflicts = crefiner.refine_conflict(model, log_output=True)
             export_conflicts(conflicts)
-            
+
     print('Solve status: %s' % mdl.get_solve_status())
     if mdl.get_solve_status() == JobSolveStatus.UNKNOWN:
         print('UNKNOWN cause: %s' % mdl.get_solve_details().status)
@@ -286,7 +286,7 @@ def solve_model(mdl):
 
 
 expr_to_info = {}
-
+outputs = {}
 
 def export_conflicts(conflicts):
     # Display conflicts in console
@@ -308,11 +308,7 @@ def export_conflicts(conflicts):
         list_of_conflicts = list_of_conflicts.append({'constraint': label, 'context': str(context), 'detail': ct},
                                                      ignore_index=True)
 
-    # Update of the ``outputs`` dict must take the 'Lock' to make this action atomic,
-    # in case the job is aborted
-    global output_lock
-    with output_lock:
-        outputs['list_of_conflicts'] = list_of_conflicts
+    outputs['list_of_conflicts'] = list_of_conflicts
 
 
 def export_solution(msol):
@@ -323,7 +319,7 @@ def export_solution(msol):
     list_of_Plants_solution = list_of_Plants_solution.round({'allocationVar': 2})
     list_of_Plants_solution['selectionVar'] = msol.get_values(list_of_Plants.selectionVar.values)
     plantsAllocation = pd.DataFrame(index=list_of_Plants.index)
-    
+
     # Adding extra columns based on Solution Schema
     plantsAllocation['plants allocation decision'] = list_of_Plants_solution['allocationVar']
     plantsAllocation['plants selection decision'] = list_of_Plants_solution['selectionVar']
@@ -333,14 +329,10 @@ def export_solution(msol):
     list_of_Plants_minValueAllocationForAssignment = pd.Series([0] * len(list_of_Plants)).to_frame('minValueAllocationForAssignment').set_index(list_of_Plants.index)
     join_Plants = list_of_Plants.join(list_of_Plants_minValueAllocationForAssignment.minValueAllocationForAssignment, how='inner')
     plantsAllocation['plants minValueAllocationForAssignment'] = join_Plants['minValueAllocationForAssignment']
-    
 
-    # Update of the ``outputs`` dict must take the 'Lock' to make this action atomic,
-    # in case the job is aborted
-    global output_lock
-    with output_lock:
-        outputs['plantsAllocation'] = plantsAllocation[['plants allocation decision', 'plants selection decision', 'plants Capacity', 'plants Product', 'plants Cost', 'plants minValueAllocationForAssignment']].reset_index().rename(columns= {'id_of_Plants': 'plants'})
-        custom_code.post_process_solution(msol, outputs)
+
+    outputs['plantsAllocation'] = plantsAllocation[['plants allocation decision', 'plants selection decision', 'plants Capacity', 'plants Product', 'plants Cost', 'plants minValueAllocationForAssignment']].reset_index().rename(columns= {'id_of_Plants': 'plants'})
+    custom_code.post_process_solution(msol, outputs)
 
     elapsed_time = time.time() - start_time
     print('solution export done in ' + str(elapsed_time) + ' secs')
