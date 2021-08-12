@@ -330,7 +330,8 @@ def export_conflicts(conflicts):
     # Update of the ``outputs`` dict must take the 'Lock' to make this action atomic,
     # in case the job is aborted
     global output_lock
-    with output_lock:
+    #VGG#with output_lock:
+    if outputs : #VGG#
         outputs['list_of_conflicts'] = list_of_conflicts
 
 
@@ -359,7 +360,8 @@ def export_solution(msol):
     # Update of the ``outputs`` dict must take the 'Lock' to make this action atomic,
     # in case the job is aborted
     global output_lock
-    with output_lock:
+    #VGG#with output_lock:
+    if output_lock: #VGG#
         outputs['plantsAllocation'] = plantsAllocation[['plants allocation decision', 'plants selection decision', 'plants Capacity', 'plants Profit', 'plants Product', 'plants Plants', 'plants Cost', 'plants minValueAllocationForAssignment']].reset_index().rename(columns= {'id_of_Plants_2': 'plants'})
         custom_code.post_process_solution(msol, outputs)
 
