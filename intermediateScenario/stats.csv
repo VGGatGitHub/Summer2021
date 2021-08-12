@@ -1,0 +1,9 @@
+Name,Value
+STAT.cplex.size.integerVariables,90
+STAT.cplex.size.continousVariables,0
+STAT.cplex.size.linearConstraints,299
+STAT.cplex.size.booleanVariables,90
+STAT.cplex.size.constraints,299
+STAT.cplex.size.quadraticConstraints,0
+STAT.cplex.size.variables,180
+STAT.cplex.modelType,MILP

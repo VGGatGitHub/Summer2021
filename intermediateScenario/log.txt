@@ -1,0 +1,30 @@
+[2020-10-07T21:50:26Z, INFO] * building wado model
+[2020-10-07T21:50:26Z, INFO] model building done in 0.2125396728515625 secs
+[2020-10-07T21:50:26Z, INFO] * running wado model
+[2020-10-07T21:50:26Z, INFO] WARNING: Number of workers has been reduced to 1 to comply with platform limitations.
+[2020-10-07T21:50:26Z, INFO] Version identifier: 12.10.0.0 | 2020-01-09 | 0d94640
+[2020-10-07T21:50:26Z, INFO] CPXPARAM_Read_DataCheck                          1
+[2020-10-07T21:50:26Z, INFO] CPXPARAM_Threads                                 1
+[2020-10-07T21:50:26Z, INFO] CPXPARAM_RandomSeed                              201903125
+[2020-10-07T21:50:26Z, INFO] CPXPARAM_TimeLimit                               120
+[2020-10-07T21:50:26Z, INFO] Found incumbent of value 0.000000 after 0.00 sec. (0.01 ticks)
+[2020-10-07T21:50:26Z, INFO] Tried aggregator 2 times.
+[2020-10-07T21:50:26Z, INFO] MIP Presolve eliminated 297 rows and 178 columns.
+[2020-10-07T21:50:26Z, INFO] Aggregator did 2 substitutions.
+[2020-10-07T21:50:26Z, INFO] All rows and columns eliminated.
+[2020-10-07T21:50:26Z, INFO] Presolve time = 0.00 sec. (0.21 ticks)
+[2020-10-07T21:50:26Z, INFO] 
+[2020-10-07T21:50:26Z, INFO] Root node processing (before b&c):
+[2020-10-07T21:50:26Z, INFO]   Real time             =    0.00 sec. (0.22 ticks)
+[2020-10-07T21:50:26Z, INFO] Sequential b&c:
+[2020-10-07T21:50:26Z, INFO]   Real time             =    0.00 sec. (0.00 ticks)
+[2020-10-07T21:50:26Z, INFO]                           ------------
+[2020-10-07T21:50:26Z, INFO] Total (root+branch&cut) =    0.00 sec. (0.22 ticks)
+[2020-10-07T21:50:26Z, INFO] Solve status: JobSolveStatus.OPTIMAL_SOLUTION
+[2020-10-07T21:50:26Z, INFO] * model docplex_model1 solved with objective = -1403296.000
+[2020-10-07T21:50:26Z, INFO] *  KPI: total plants allocations                    = 967168.000
+[2020-10-07T21:50:26Z, INFO] *  KPI: total Cost of plants over all allocations   = 65248.000
+[2020-10-07T21:50:26Z, INFO] *  KPI: total Profit of plants over all allocations = 501376.000
+[2020-10-07T21:50:26Z, INFO] model solve done in 0.016410112380981445 secs
+[2020-10-07T21:50:26Z, INFO] solution export done in 0.009258270263671875 secs
+[2020-10-07T21:50:26Z, INFO] plantsAllocation.csv
