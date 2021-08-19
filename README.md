@@ -1,3 +1,5 @@
+[QWorld project 16](https://qworld.net/qintern-2021/) also on [GitLab](https://gitlab.com/qworld/qresearch/qintern2021/16_d-wave-optimizations-for-supply-chain-channels/)
+
 **Project: d-Wave optimizations for Supply Chain channels**
 
 **Mentor:** Vesselin Gueorguiev
