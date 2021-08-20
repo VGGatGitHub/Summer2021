@@ -1,0 +1,110 @@
+Id,Plants,Cost,Capacity,Product,Profit
+1,Sand Point-SUB,10,18,CO2_in_AK,10
+2,Barry-SUB,10,14,CO2_in_AL,9
+3,Barry-RC,9,14,CO2_in_AL,10
+4,Barry-SUB,10,14,CO2_in_AL,10
+5,Barry-RC,9,13,CO2_in_AL,11
+6,Gadsden-SUB,10,13,CO2_in_AL,9
+7,Gorgas-RC,9,13,CO2_in_AL,11
+8,Gorgas-BIT,9,13,CO2_in_AL,10
+9,Copper-RC,9,12,CO2_in_TX,11
+10,Greene County-SUB,10,12,CO2_in_AL,10
+11,Greene County-RC,9,11,CO2_in_AL,10
+12,Greene County-SUB,10,11,CO2_in_AL,10
+13,E C Gaston-BIT,9,11,CO2_in_AL,11
+14,E C Gaston-RC,9,10,CO2_in_AL,10
+15,E C Gaston-BIT,9,10,CO2_in_AL,11
+16,Madelia-BIT,9,10,CO2_in_MN,10
+17,Colbert-RC,9,10,CO2_in_AL,11
+18,Dolet Hills-RC,9,9,CO2_in_LA,11
+19,Dolet Hills-BIT,9,9,CO2_in_LA,11
+20,J K Smith-BIT,9,9,CO2_in_KY,11
+21,J K Smith-SUB,10,9,CO2_in_KY,9
+22,Charles R Lowman-SUB,10,9,CO2_in_AL,10
+23,Charles R Lowman-BIT,9,9,CO2_in_AL,10
+24,Platte-SUB,10,9,CO2_in_NE,10
+25,Platte-SUB,10,8,CO2_in_NE,10
+26,Whelan Energy Center-RC,9,8,CO2_in_NE,10
+27,Whelan Energy Center-SUB,10,8,CO2_in_NE,11
+28,Whelan Energy Center-SUB,10,8,CO2_in_NE,10
+29,Gold Creek-SUB,10,8,CO2_in_AK,10
+30,Lemon Creek-RC,9,8,CO2_in_AK,10
+31,Lemon Creek-BIT,9,8,CO2_in_AK,12
+32,Skagway-RC,9,8,CO2_in_AK,11
+33,Haines-SUB,10,8,CO2_in_AK,10
+34,Anchorage 1-NG,5,8,CO2_in_AK,17
+35,Anchorage 1-SUB,10,8,CO2_in_AK,11
+36,Anchorage 1-BIT,9,8,CO2_in_AK,11
+37,Aurora Energy LLC Chena-RC,9,8,CO2_in_AK,11
+38,S W Bailey-SUB,10,8,CO2_in_AK,9
+39,Escalante-RC,9,7,CO2_in_NM,11
+40,Escalante-RC,9,7,CO2_in_NM,10
+41,Snake River-SUB,10,7,CO2_in_AK,10
+42,Petersburg-RC,9,7,CO2_in_AK,11
+43,Seward (AK)-BIT,9,7,CO2_in_AK,11
+44,Wrangell-SUB,10,7,CO2_in_AK,10
+45,Beluga-BIT,9,7,CO2_in_AK,10
+46,Frederickson-SUB,10,7,CO2_in_WA,10
+47,Frederickson-BIT,9,7,CO2_in_WA,10
+48,Holcomb-SUB,10,7,CO2_in_KS,10
+49,Holcomb-BIT,9,7,CO2_in_KS,10
+50,Dillingham-NG,5,7,CO2_in_AK,18
+51,Cholla-BIT,9,7,CO2_in_AZ,11
+52,Cholla-BIT,9,7,CO2_in_AZ,11
+53,Cholla-SUB,10,6,CO2_in_AZ,10
+54,Douglas-BIT,9,6,CO2_in_AZ,10
+55,Ocotillo-RC,9,6,CO2_in_AZ,11
+56,West Phoenix-SUB,10,6,CO2_in_AZ,9
+57,West Phoenix-BIT,9,6,CO2_in_AZ,11
+58,West Phoenix-RC,9,6,CO2_in_AZ,10
+59,West Phoenix-BIT,9,6,CO2_in_AZ,10
+60,Saguaro-RC,9,6,CO2_in_AZ,12
+61,Yucca-SUB,10,6,CO2_in_AZ,10
+62,Yucca-SUB,10,6,CO2_in_AZ,10
+63,Yucca-BIT,9,6,CO2_in_AZ,10
+64,Demoss Petrie-RC,9,5,CO2_in_AZ,10
+65,H Wilson Sundt Generating Station-RC,9,5,CO2_in_AZ,10
+66,H Wilson Sundt Generating Station-RC,9,5,CO2_in_AZ,10
+67,Oklaunion-RC,9,5,CO2_in_TX,10
+68,Oklaunion-BIT,9,5,CO2_in_TX,10
+69,Cross-RC,9,5,CO2_in_SC,10
+70,Cross-RC,9,5,CO2_in_SC,9
+71,Seminole (FL)-SUB,10,5,CO2_in_FL,10
+72,Seminole (FL)-SUB,10,5,CO2_in_FL,9
+73,Agua Fria-BIT,9,5,CO2_in_AZ,10
+74,Agua Fria-RC,9,5,CO2_in_AZ,10
+75,Agua Fria-RC,9,5,CO2_in_AZ,10
+76,Kyrene-BIT,9,5,CO2_in_AZ,10
+77,Kyrene-NG,5,5,CO2_in_AZ,16
+78,Kyrene-SUB,10,5,CO2_in_AZ,11
+79,McClure-LIG,10,5,CO2_in_CA,9
+80,McClure-BIT,9,5,CO2_in_CA,11
+81,Apache Station-RC,9,5,CO2_in_AZ,10
+82,Apache Station-BIT,9,5,CO2_in_AZ,10
+83,Apache Station-BIT,9,4,CO2_in_AZ,10
+84,Apache Station-BIT,9,4,CO2_in_AZ,9
+85,GREC-NG,5,4,CO2_in_OK,17
+86,GREC-SUB,10,4,CO2_in_OK,9
+87,GREC-NG,5,4,CO2_in_OK,16
+88,GREC-NG,5,4,CO2_in_OK,16
+89,Lake Catherine-BIT,9,4,CO2_in_AR,12
+90,Municipal Light-BIT,9,4,CO2_in_AR,9
+91,Thomas Fitzhugh-BIT,9,4,CO2_in_AR,10
+92,Thomas Fitzhugh-NG,5,4,CO2_in_AR,18
+93,Carl Bailey-RC,9,4,CO2_in_AR,9
+94,McClellan (AR)-RC,9,4,CO2_in_AR,9
+95,Humboldt Bay-SUB,10,4,CO2_in_CA,9
+96,Humboldt Bay-BIT,9,4,CO2_in_CA,10
+97,Dynegy Moss Landing Power Plant Hybrid-RC,9,4,CO2_in_CA,9
+98,Dynegy Moss Landing Power Plant Hybrid-RC,9,4,CO2_in_CA,10
+99,Geysers Unit 5-20-SUB,10,4,CO2_in_CA,9
+100,Limestone-RC,9,4,CO2_in_TX,11
+101,Limestone-SUB,10,4,CO2_in_TX,9
+102,Blundell-BIT,9,4,CO2_in_UT,11
+103,AES Alamitos LLC-NG,5,4,CO2_in_CA,18
+104,AES Huntington Beach LLC-NG,5,4,CO2_in_CA,17
+105,Long Beach Generation LLC-SUB,10,4,CO2_in_CA,11
+106,Ormond Beach-BIT,9,4,CO2_in_CA,11
+107,AES Redondo Beach LLC-SUB,10,4,CO2_in_CA,11
+108,Mountainview Generating Station-SUB,10,4,CO2_in_CA,10
+109,Mountainview Generating Station-BIT,9,4,CO2_in_CA,11
